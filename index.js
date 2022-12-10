@@ -9,8 +9,11 @@ const openaiRoutes = require('./routes/openaiRoutes')
 // Creating express app
 const app = express()
 
-// Using routes
+// Enable body parser for reading forms
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 
+// Using routes
 app.use('/openai', openaiRoutes)
 
 app.listen(port, () => {
